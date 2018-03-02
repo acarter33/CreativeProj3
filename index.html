@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="styles.css"/>
+    <title>Virtual Receipt</title>
+  </head>
+  <body>
+
+    <h1> Leland Miller's Beauty School </h1>
+
+<form id ="main" v-cloak>
+  <h1>Cosmetology Services</h1>
+  <h2> Please select the services you would like to receive in order to calculate the approximate total of your visit.</h2>
+
+  <ul>
+    <li v-for="service in services" v-on:click="toggleActive(service)" v-bind:class="{ 'active': service.active}">
+      {{service.name}} <span> {{service.price | currency}}</span>
+    </li>
+  </ul>
+
+  <div class="total">
+    Total: <span>{{total() | currency}}</span>
+  </div>
+</form>
+
+<footer class="footer">
+  <a href="https://github.com/acarter33/CreativeProj3.git">My Github</a>
+</footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <script src="script.js"></script>
+  </body>
+</html>
